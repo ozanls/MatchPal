@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tournament Setup - MatchPal</title>
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!--Title Section-->
+    <h1>Create a Tournament</h1>
+    <h2>Enter tournament info</h2>
+
+    <!--Gathering Tournament Details-->
+    <form method="POST" id="tournament-form">
+        <label for="tournament-name">Tournament name:</label><br>
+        <input type="text" id="tournament-name" name="tournament-name" placeholder="Super Cup" maxlength="20"><br>
+        <label for="match-time">Match time (minutes):</label><br>
+        <input type="number" step="1" id="match-time" name="match-time" value="12"><br>
+        <label for="tournament-style">Tournament style:</label><br>
+        <select autocomplete="off" id="tournament-style" name="tournament-style" class="dropdown-menu">
+            <option value="E">Elimination</option>
+            <option value="R">Round-Robin</option>
+        </select>
+        <br>
+        <div id="best-of-series-div">
+            <label for="best-of-series">Best of:</label><br>
+            <input type="number" step="1" id="best-of-series" name="best-of-series" value="1">
+        </div>
+        <label for="number-of-teams">Number of teams:</label><br>
+        <input type="number" step="1" id="number-of-teams" name="best-of-series" value="8"><br>
+        </div>
+
+        <label for="team-names">Team names (one per line):</label><br>
+        <textarea id="team-names" name="team-names"></textarea>
+        <br>
+        <div id="create-tournament-button" class="menu-button">Create Tournament</div>
+        <br>
+    </form>
+
+    <!--Return to Menu-->
+    <a href="index.html">
+        <div id="return-to-menu" class="menu-button">Return to menu</div>
+    </a>
+
+    <div id="bottom-spacer"></div>
+
+    <script src="index.js"></script>
+
+
+</body>
+</html>

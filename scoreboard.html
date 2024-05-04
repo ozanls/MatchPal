@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Scoreboard</title>
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!--Title Section-->
+    <h1 id="match-name-display">Soccer Match</h1>
+    <h2 id="homeVSaway-display">Home vs. Away</h2>
+    <!--Scoreboard Structure-->
+    <div id="scoreboard">
+        <div id="scoreboard-left">
+            <h3 id="home-teamdisplay" class="team-display">Home</h3>
+            <div id="home-goalcounter" class="scoreboard-goalcounter">0</div>
+            <div id="home-addgoalbutton" class="scoreboard-goalbutton">GOAL</div>
+            <div id="home-removegoalbutton">-</div>
+
+        </div>
+
+        <div id="scoreboard-center">
+            <p id="timeRemaining">Time Remaining:</p>
+            <div id="scoreboard-timer"></div>
+            <div id="scoreboard-timer-start" class="menu-button">Start match</div>
+            <div id="scoreboard-timer-pause" class="menu-button">Pause match</div>
+            <div id="scoreboard-timer-continue" class="menu-button">Continue Match</div>
+            <div id="scoreboard-coinflip" class="menu-button">Flip a coin</div>
+            <a href="index.html">
+                <div id="return-to-menu" class="menu-button">Return to menu</div>
+            </a>
+            <a href="elimination.html">
+                <div id="return-to-bracket" class="menu-button">Return to Bracket</div>
+            </a>
+            <div id="scoreboard-end" class="menu-button">End match</div>
+        </div>
+
+        <div id="scoreboard-right">
+            <h3 id="away-teamdisplay" class="team-display">Away</h3>
+            <div id="away-goalcounter" class="scoreboard-goalcounter">0</div>
+            <div id="away-addgoalbutton" class="scoreboard-goalbutton">GOAL</div>
+            <div id="away-removegoalbutton">-</div>
+        </div>
+    </div>
+
+    <div id="alert-wrapper">
+        <div id="alert">
+            <div id="alert-message"></div>
+            <div id="scoreboard-coinflip-action" class="menu-button">Flip a coin</div>
+            <div id="scoreboard-coinflip-close" class="menu-button">Close</div>
+        </div>
+    </div>
+
+    <div id="bottom-spacer"></div>
+
+    <script src="index.js"></script>
+</body>
+</html>

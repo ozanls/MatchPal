@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Match Setup - MatchPal</title>
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!--Title Section-->
+    <h1>Create a Match</h1>
+    <h2>Enter match info</h2>
+    <!--Gathering Match Details-->
+    <form method="POST" id="match-form">
+        <label for="match-name">Match name:</label><br>
+        <input type="text" id="match-name" name="match-name" placeholder="El Clasico" maxlength="20" required><br>
+        <label for="match-time">Match time (minutes):</label><br>
+        <input type="number" step="1" id="match-time" name="match-time" value="12"><br>
+        <label for="home-team-name">Home Team Name:</label><br>
+        <input type="text" id="home-team-name" name="home-team-name" placeholder="Real Madrid" maxlength="20" required><br>
+        <label for="away-team-name">Away Team Name:</label><br>
+        <input type="text" id="away-team-name" name="away-team-name" placeholder="FC Barcelona" maxlength="20" required><br>
+        <div id="create-match-button" class="menu-button">Create Match</div>
+    </form>
+    <!--Return to Menu-->
+    <a href="index.html">
+        <div id="return-to-menu" class="menu-button">Return to menu</div>
+    </a>
+
+    <div id="bottom-spacer"></div>
+
+    <script src="index.js"></script>
+</body>
+</html>
