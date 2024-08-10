@@ -18,12 +18,16 @@ document.addEventListener("DOMContentLoaded", function () {
 // Storing match & tournament information
 	let matchInfo = JSON.parse(localStorage.getItem("matchInfo")) || {};
 	const createMatchButton = document.getElementById("create-match-button");
-    if (createMatchButton) {
-        createMatchButton.addEventListener("click", function(event) {
-            event.preventDefault();
-            setMatchInfo();
+	if (createMatchButton) {
+
+		// When "Create Match" is clicked, match info is sent to localStorage using setMatchInfo function, page is redirected to scoreboard.html
+		createMatchButton.addEventListener("click", setMatchInfo);
+		createMatchButton.addEventListener("keydown", function(event) {
+            if (event.key === "Enter" || event.key === " ") {
+                setMatchInfo();
+            }
         });
-    }
+	}
 
 	function setMatchInfo() {
 		const matchForm = document.getElementById("match-form");
@@ -65,13 +69,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
 			}
 		});
-
+		createTournamentButton.addEventListener("keydown", function(event) {
+            if (event.key === "Enter" || event.key === " ") {
+                createTournament();
+            }
+        });
 
 		// When "Create Tournament" is clicked, tournament info is sent to localStorage using createTournament function
-        createTournamentButton.addEventListener("click", function(event) {
-            event.preventDefault(); // Prevent the default form submission
-            createTournament();
-        });
+		createTournamentButton.addEventListener("click", createTournament)
 	}
 
 	// Create tournament function
@@ -237,7 +242,7 @@ document.addEventListener("DOMContentLoaded", function () {
 				if (homeIndex !== undefined && awayIndex !== undefined) {
 					if (homeIndex.wins < Math.ceil(tourneyInfo.bestOf / 2) && awayIndex.wins < Math.ceil(tourneyInfo.bestOf / 2)) {
 						if (tourneyTeams.length >= totalTeamsPerRound[round]) {
-							const startMatchTourney = document.createElement('button');
+							const startMatchTourney = document.createElement('div');
 							startMatchTourney.className = "start-match-tourney";
 							startMatchTourney.textContent = "Start Match"
 							startMatchTourney.addEventListener("click", function () {
