@@ -39,6 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		localStorage.setItem("matchInfo", JSON.stringify(matchInfo));
 		console.log(matchInfo);
 		matchForm.submit();
+		event.preventDefault();
 		window.location.href = "scoreboard.html"
 	}
 
@@ -72,6 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	// Create tournament function
 	function createTournament() {
+		event.preventDefault()
 		let tourneyInfo = {
 			name: document.getElementById("tournament-name").value || "Tournament",
 			time: document.getElementById("match-time").value || 12,
@@ -106,6 +108,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		if (tourneyForm.checkValidity()) {
 			localStorage.setItem("tourneyInfo", JSON.stringify(tourneyInfo));
 			tourneyForm.submit();
+			event.preventDefault();
 
 			// If tournament is elimination, redirect to elimination.html. If tournament is round robin, redirect to roundrobin.html
 			if (tourneyInfo.style === "E") {
@@ -233,7 +236,7 @@ document.addEventListener("DOMContentLoaded", function () {
 				if (homeIndex !== undefined && awayIndex !== undefined) {
 					if (homeIndex.wins < Math.ceil(tourneyInfo.bestOf / 2) && awayIndex.wins < Math.ceil(tourneyInfo.bestOf / 2)) {
 						if (tourneyTeams.length >= totalTeamsPerRound[round]) {
-							const startMatchTourney = document.createElement('div');
+							const startMatchTourney = document.createElement('button');
 							startMatchTourney.className = "start-match-tourney";
 							startMatchTourney.textContent = "Start Match"
 							startMatchTourney.addEventListener("click", function () {
