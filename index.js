@@ -18,11 +18,12 @@ document.addEventListener("DOMContentLoaded", function () {
 // Storing match & tournament information
 	let matchInfo = JSON.parse(localStorage.getItem("matchInfo")) || {};
 	const createMatchButton = document.getElementById("create-match-button");
-	if (createMatchButton) {
-
-		// When "Create Match" is clicked, match info is sent to localStorage using setMatchInfo function, page is redirected to scoreboard.html
-		createMatchButton.addEventListener("click", setMatchInfo);
-	}
+    if (createMatchButton) {
+        createMatchButton.addEventListener("click", function(event) {
+            event.preventDefault();
+            setMatchInfo();
+        });
+    }
 
 	function setMatchInfo() {
 		const matchForm = document.getElementById("match-form");
@@ -39,7 +40,6 @@ document.addEventListener("DOMContentLoaded", function () {
 		localStorage.setItem("matchInfo", JSON.stringify(matchInfo));
 		console.log(matchInfo);
 		matchForm.submit();
-		event.preventDefault();
 		window.location.href = "scoreboard.html"
 	}
 
@@ -68,12 +68,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 		// When "Create Tournament" is clicked, tournament info is sent to localStorage using createTournament function
-		createTournamentButton.addEventListener("click", createTournament)
+        createTournamentButton.addEventListener("click", function(event) {
+            event.preventDefault(); // Prevent the default form submission
+            createTournament();
+        });
 	}
 
 	// Create tournament function
 	function createTournament() {
-		event.preventDefault()
 		let tourneyInfo = {
 			name: document.getElementById("tournament-name").value || "Tournament",
 			time: document.getElementById("match-time").value || 12,
@@ -108,7 +110,6 @@ document.addEventListener("DOMContentLoaded", function () {
 		if (tourneyForm.checkValidity()) {
 			localStorage.setItem("tourneyInfo", JSON.stringify(tourneyInfo));
 			tourneyForm.submit();
-			event.preventDefault();
 
 			// If tournament is elimination, redirect to elimination.html. If tournament is round robin, redirect to roundrobin.html
 			if (tourneyInfo.style === "E") {
