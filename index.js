@@ -242,7 +242,7 @@ document.addEventListener("DOMContentLoaded", function () {
 				if (homeIndex !== undefined && awayIndex !== undefined) {
 					if (homeIndex.wins < Math.ceil(tourneyInfo.bestOf / 2) && awayIndex.wins < Math.ceil(tourneyInfo.bestOf / 2)) {
 						if (tourneyTeams.length >= totalTeamsPerRound[round]) {
-							const startMatchTourney = document.createElement('div');
+							const startMatchTourney = document.createElement('button');
 							startMatchTourney.className = "start-match-tourney";
 							startMatchTourney.textContent = "Start Match"
 							startMatchTourney.addEventListener("click", function () {
